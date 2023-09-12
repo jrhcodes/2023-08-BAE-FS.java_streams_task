@@ -9,11 +9,10 @@ import java.util.List;
 
 public class Exercise001 {
 
-    public static void main(String[] args) throws Exception {
 
+    public static void main(String[] args) throws Exception {
         filterCars();
         findPerson();
-
     }
 
     public static void filterCars() throws Exception {
@@ -22,7 +21,11 @@ public class Exercise001 {
         // I would like the results printed out to the console
         // I have provided you with the list of cars to find these from below:
         List<Car> cars = MockData.getCars();
-
+        cars.stream()
+                .filter(car -> car.year() < 2001)
+                .filter(car -> car.price() < 30000)
+                .filter(car -> car.colour().equals("Green"))
+                .forEach(System.out::println);
         // write your solution here
     }
 
@@ -33,7 +36,11 @@ public class Exercise001 {
         // Output your result to the console
 
         List<Person> people = MockData.getPeople();
-
+        people.stream().filter(person -> person.age() > 30)
+                .filter(person -> person.gender().equals("Male"))
+                .filter( person -> person.firstName().startsWith("A"))
+                .filter( person -> person.lastName().startsWith("M"))
+                .forEach(System.out::println);
         // write your solution here
 
     }

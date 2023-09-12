@@ -5,13 +5,13 @@ import org.techreturners.mockdata.MockData;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Exercise003 {
 
     public static void main(String[] args) throws IOException {
-
         groupByColour();
-
     }
 
     public static void groupByColour() throws IOException {
@@ -21,8 +21,15 @@ public class Exercise003 {
 
         List<Car> cars = MockData.getCars();
 
-        // write your solution here
+        Map<String, List<Car>> groupedCars = cars.stream()
+                .filter(car -> car.price() < 20000 && car.year() == 1995)
+                .collect(Collectors.groupingBy(Car::colour));
+
+        // Print the grouped cars to the console
+        groupedCars.forEach((color, carList) -> {
+            System.out.println("Color: " + color);
+            carList.forEach(System.out::println);
+        });
 
     }
 }
-

@@ -5,7 +5,9 @@ import org.techreturners.data_models.Person;
 import org.techreturners.mockdata.MockData;
 
 import java.io.IOException;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Exercise002 {
 
@@ -22,6 +24,8 @@ public class Exercise002 {
         // Please return the results from the lowest to the highest age
 
         List<Person> people = MockData.getPeople();
+        Stream<Person> sorted = people.stream().sorted((person1, person2) -> person1.age() - person2.age());
+        sorted.forEach(System.out::println);
 
     }
 
@@ -33,6 +37,8 @@ public class Exercise002 {
         // Print the results of this to the console
 
         List<Car> cars = MockData.getCars();
+        cars.stream().sorted(Comparator.comparing(Car::make).thenComparingInt(Car::year))
+            .forEach(System.out::println);
 
         // write your solution here
     }
@@ -44,6 +50,8 @@ public class Exercise002 {
         // Oh, also, it has to be Red!
 
         List<Car> cars = MockData.getCars();
+        cars.stream().sorted(Comparator.comparing(Car::price)).filter(car -> car.colour().equals("Red")).limit(10)
+                .forEach(System.out::println);
 
         // write your solution here
 
