@@ -12,11 +12,11 @@ public class Exercise001 {
 
     public static void main(String[] args) throws Exception {
         System.out.println("Exercise 1");
-        System.out.println("%nfilterCars");
+        System.out.println("\nfilterCars");
         filterCars();
-        System.out.println("%nfindPerson");
+        System.out.println("\nfindPerson");
         findPerson();
-        System.out.println("%n");
+        System.out.println("\n");
     }
 
     public static void filterCars() throws Exception {
