@@ -21,9 +21,10 @@ public class Exercise001 {
         // I would like the results printed out to the console
         // I have provided you with the list of cars to find these from below:
         List<Car> cars = MockData.getCars();
+        System.out.println("Cars: year <= 2001, price <= 30000, colour= Green");
         cars.stream()
-                .filter(car -> car.year() < 2001)
-                .filter(car -> car.price() < 30000)
+                .filter(car -> car.year() <= 2001)
+                .filter(car -> car.price() <= 30000)
                 .filter(car -> car.colour().equals("Green"))
                 .forEach(System.out::println);
         // write your solution here
@@ -34,6 +35,8 @@ public class Exercise001 {
         // All I know is that it's a Male, older than 30, who's initials are A M.
         // Can you find people who match this to help whittle down my search?
         // Output your result to the console
+
+        System.out.println("Cars: age >30, gender = Male, Initials=A.M.");
 
         List<Person> people = MockData.getPeople();
         people.stream().filter(person -> person.age() > 30)
