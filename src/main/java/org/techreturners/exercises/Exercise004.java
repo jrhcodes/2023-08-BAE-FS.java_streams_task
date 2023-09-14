@@ -2,6 +2,7 @@ package org.techreturners.exercises;
 
 import org.techreturners.data_models.Car;
 import org.techreturners.data_models.Person;
+import org.techreturners.data_models.PersonDTO;
 import org.techreturners.mockdata.MockData;
 
 import java.io.IOException;
@@ -10,8 +11,12 @@ import java.util.List;
 public class Exercise004 {
 
     public static void main(String[] args) throws IOException {
+        System.out.println("Exercise 4");
+        System.out.println("\nfindAverageCarPrice");
         findAverageCarPrice();
+        System.out.println("\ndataFilteringAndTransformation");
         dataFilteringAndTransformation();
+        System.out.println("\n");
     }
 
     public static void findAverageCarPrice() throws IOException {
@@ -35,7 +40,12 @@ public class Exercise004 {
 
         List<Person> people = MockData.getPeople();
 
-        // write your solution here
+        List<PersonDTO> dtoList = people.stream()
+                .filter(person -> person.age() > 65)
+                .map(person -> new PersonDTO(person.id(), "%s, %s".formatted(person.lastName(), person.firstName()), person.age())).toList();
+
+        dtoList.forEach(dto -> System.out.printf("{id=%d,name=\"%s\",age=%d}%n", dto.getId(), dto.getName(), dto.getAge()));
+
     }
 
 
