@@ -12,11 +12,14 @@ import java.util.stream.Stream;
 public class Exercise002 {
 
     public static void main(String[] args) throws IOException {
-
+        System.out.println("Exercise 2");
+        System.out.println("\nsortPeopleByAge():");
         sortPeopleByAge();
+        System.out.println("\nsortByCarMakeAndYear();");
         sortByCarMakeAndYear();
+        System.out.println("\ntenMostExpensiveRedCars");
         tenMostExpensiveRedCars();
-
+        System.out.println("\n");
     }
 
     public static void sortPeopleByAge() throws IOException {
