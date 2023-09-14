@@ -10,10 +10,8 @@ import java.util.List;
 public class Exercise004 {
 
     public static void main(String[] args) throws IOException {
-
         findAverageCarPrice();
         dataFilteringAndTransformation();
-
     }
 
     public static void findAverageCarPrice() throws IOException {
@@ -21,8 +19,12 @@ public class Exercise004 {
         // Output the resulting double value to the console
         List<Car> cars = MockData.getCars();
 
-        // write your solution here
+        double averagePrice = cars.stream()
+                .mapToDouble(Car::price)
+                .average()
+                .orElse(0.0);
 
+        System.out.printf("Average price %.2f%n", averagePrice);
     }
 
     public static void dataFilteringAndTransformation() throws IOException {

@@ -12,9 +12,9 @@ public class Exercise003 {
 
     public static void main(String[] args) throws IOException {
         System.out.println("Exercise 3");
-        System.out.println("\ngroupByColour");
+        System.out.println("%ngroupByColour");
         groupByColour();
-        System.out.println("\n");
+        System.out.println("%n");
     }
 
     public static void groupByColour() throws IOException {
