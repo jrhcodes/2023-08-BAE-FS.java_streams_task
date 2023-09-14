@@ -27,7 +27,7 @@ public class Exercise002 {
         // Please return the results from the lowest to the highest age
 
         List<Person> people = MockData.getPeople();
-        Stream<Person> sorted = people.stream().sorted((person1, person2) -> person1.age() - person2.age());
+        Stream<Person> sorted = people.stream().sorted(Comparator.comparingInt(Person::age));
         sorted.forEach(System.out::println);
 
     }
